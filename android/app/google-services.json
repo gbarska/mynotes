@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "402218717117",
+    "project_id": "mynotesgbarska",
+    "storage_bucket": "mynotesgbarska.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402218717117:android:0524c59775320faa20ccd4",
+        "android_client_info": {
+          "package_name": "com.ibiuna.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402218717117-630m2h4iq18urk404pni8891qk6pfi8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG-s4ZbDVQr5kKpOgbR12ngYlBEJj4DgM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402218717117-630m2h4iq18urk404pni8891qk6pfi8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
