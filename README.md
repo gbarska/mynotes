@@ -32,7 +32,12 @@ dart pub global activate flutterfire_cli
 
 flutterfire configure
 
+## Templates
 
+https://instaflutter.com/design/best-flutter-app-templates/
+
+
+## Firebase
 
 flutter firebase auth docs:
 https://firebase.flutter.dev/docs/auth/usage/
