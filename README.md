@@ -16,6 +16,13 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
+## Architecture
+
+https://docs.flutter.dev/resources/architectural-overview
+
+
+## Commands
+
 flutter pub add firebase_core
 flutter pub add firebase_auth
 flutter pub add cloud_firestore
@@ -26,4 +33,7 @@ dart pub global activate flutterfire_cli
 flutterfire configure
 
 
+
+flutter firebase auth docs:
+https://firebase.flutter.dev/docs/auth/usage/
 
