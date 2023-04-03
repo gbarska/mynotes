@@ -41,6 +41,9 @@ class _LoginViewState extends State<LoginView> {
                           try {
                               final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
                               print(userCredential);
+
+                              Navigator.of(context).pushNamedAndRemoveUntil('/home', (route) => false);
+
                           } on FirebaseAuthException catch (e) {
                             if(e.code == 'user-not-found' || e.code == 'wrong-password') {
                               print('Invalid user or password');
