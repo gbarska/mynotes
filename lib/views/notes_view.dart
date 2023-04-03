@@ -1,8 +1,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
-
 import 'package:mynotes/constants/routes.dart';
 
 enum MenuAction {
@@ -25,7 +23,6 @@ class _NotesViewState extends State<NotesView> {
           actions: [
             PopupMenuButton<MenuAction>(
               onSelected: (value) async {
-                  devtools.log('Selected $value');
                   switch(value) {
                     case MenuAction.logout:
                      final shouldLogout = await showLogOutDialog(context);
