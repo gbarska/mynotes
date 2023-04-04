@@ -4,6 +4,7 @@ import 'package:mynotes/services/auth/auth_service.dart';
 import 'package:mynotes/utilities/show_error_dialog.dart';
 
 import '../services/auth/auth_exceptions.dart';
+import '../utilities/get_it_provider.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -32,6 +33,7 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
+    final authService = getIt<AuthService>();
     return Scaffold(
       appBar: AppBar(title: const Text('Register'), ),
       body: Column(
@@ -43,9 +45,9 @@ class _RegisterViewState extends State<RegisterView> {
                           final password = _password.text;
     
                           try {
-                            await AuthService.firebase().createUser(email: email, password: password);
-                            final user = AuthService.firebase().currentUser;
-                            AuthService.firebase().sendEmailVerification();
+                            await authService.createUser(email: email, password: password);
+                            final user = authService.currentUser;
+                            authService.sendEmailVerification();
                             Navigator.of(context).pushNamed(verifyEmailRoute);       
                           } on WeakPasswordAuthException catch (e) {
                                 await showErrorDialog(

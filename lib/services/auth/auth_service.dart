@@ -1,12 +1,20 @@
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/auth_user.dart';
 import 'package:mynotes/services/auth/firebase_auth_provider.dart';
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:mynotes/services/auth/windows_auth_provider.dart';
 
 class AuthService implements AuthProvider {
   final AuthProvider provider;
   const AuthService(this.provider);
 
-  factory AuthService.firebase() => AuthService(FirebaseAuthProvider());
+    factory AuthService.instance() {
+      if(defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android || kIsWeb) {
+        return AuthService(FirebaseAuthProvider());
+      } else {
+        return AuthService(WindowsAuthProvider());
+      }
+  }
 
   @override
   Future<AuthUser> createUser({

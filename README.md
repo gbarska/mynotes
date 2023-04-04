@@ -42,3 +42,7 @@ https://instaflutter.com/design/best-flutter-app-templates/
 flutter firebase auth docs:
 https://firebase.flutter.dev/docs/auth/usage/
 
+
+## di
+
+https://blog.logrocket.com/dependency-injection-flutter-using-getit-injectable/

@@ -3,6 +3,7 @@ import 'package:mynotes/constants/routes.dart';
 
 import '../enums/menu_action.dart';
 import '../services/auth/auth_service.dart';
+import '../utilities/get_it_provider.dart';
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
@@ -25,7 +26,7 @@ class _NotesViewState extends State<NotesView> {
                      final shouldLogout = await showLogOutDialog(context);
 
                       if(shouldLogout){
-                        await AuthService.firebase().logOut();
+                        await getIt<AuthService>().logOut();
                         Navigator.of(context).pushNamedAndRemoveUntil(
                           loginRoute,
                          (_) => false);

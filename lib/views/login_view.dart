@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
-
+import '../utilities/get_it_provider.dart';
 import '../utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
@@ -32,6 +32,8 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+     final authService = getIt<AuthService>();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Login'), ),
       body: Column(
@@ -44,15 +46,20 @@ class _LoginViewState extends State<LoginView> {
     
                           try {
 
-                             await AuthService.firebase().logIn(email: email, password: password);
-                             final user = AuthService.firebase().currentUser;
+                             await authService.logIn(email: email, password: password);
+
+                             final user = authService.currentUser;
                               
-                              if(user?.isEmailVerified ?? false){
+                              if(user != null){
+                                if(user?.isEmailVerified ?? false){
                                     Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false);
                                 } else {
-                                    await AuthService.firebase().sendEmailVerification();
+                                    await authService.sendEmailVerification();
                                     Navigator.of(context).pushNamedAndRemoveUntil(verifyEmailRoute, (route) => false);
                                 }
+                              } else {
+                                await showErrorDialog(context, 'Authentication failed, please try again later.');
+                              }
 
                           } on WrongCredentialsAuthException catch (e) {
                              await showErrorDialog(context, 'Invalid email or password');
