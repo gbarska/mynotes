@@ -3,7 +3,7 @@ import 'package:mynotes/services/auth/auth_provider.dart';
 
 class WindowsAuthProvider implements AuthProvider {
   bool isLogged = false;
-  bool isConfirmed = false;
+  bool isConfirmed = true;
 
   @override
   Future<void> initialize() async {
